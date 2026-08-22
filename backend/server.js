@@ -20,6 +20,7 @@ app.use(express.json());
 app.use("/api/auth", authRoutes);
 app.use("/api/employees", employeeRoutes);
 
+
 // Health Check
 app.get("/api/health", (req, res) => {
   res.json({
