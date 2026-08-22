@@ -1,0 +1,1 @@
+export default function Employees() { return <div><h1>Employee Directory</h1></div> }

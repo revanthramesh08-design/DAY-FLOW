@@ -1,0 +1,1 @@
+export default function Attendance() { return <div><h1>My Attendance</h1></div> }

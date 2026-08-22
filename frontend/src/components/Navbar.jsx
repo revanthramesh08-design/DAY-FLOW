@@ -1,69 +1,31 @@
-import { Bell, User } from 'lucide-react'
+import React from 'react';
+import { Menu, Bell, User } from 'lucide-react';
 
-export default function Navbar({ role }) {
+export default function Navbar({ toggleSidebar }) {
   return (
-    <header className="navbar">
-      <div className="navbar-brand">
-        <span className="role-badge">{role.toUpperCase()} PANEL</span>
-      </div>
-      <div className="navbar-actions">
-        <button className="icon-btn" aria-label="Notifications">
-          <Bell size={20} />
+    <header className="bg-white border-b border-slate-200 px-6 h-16 flex items-center justify-between shrink-0">
+      <div className="flex items-center gap-4">
+        <button 
+          onClick={toggleSidebar} 
+          className="p-2 rounded-lg hover:bg-slate-100 text-slate-600 transition-colors"
+        >
+          <Menu size={18} />
         </button>
-        <div className="user-profile">
-          <User size={20} />
-          <span>Demo User</span>
+        <span className="text-sm font-semibold text-slate-700">Dayflow HRMS Platform</span>
+      </div>
+
+      <div className="flex items-center gap-4">
+        <button className="p-2 text-slate-500 hover:bg-slate-100 rounded-full relative transition-colors">
+          <Bell size={18} />
+          <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-blue-600 rounded-full"></span>
+        </button>
+        <div className="flex items-center gap-3 pl-4 border-l border-slate-200">
+          <div className="w-8 h-8 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center font-bold">
+            <User size={16} />
+          </div>
+          <span className="text-sm font-medium text-slate-700">User Account</span>
         </div>
       </div>
-      <style>{`
-        .navbar {
-          height: var(--header-height);
-          background: var(--bg-surface);
-          border-bottom: 1px solid var(--border-color);
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          padding: 0 24px;
-          position: sticky;
-          top: 0;
-          z-index: 10;
-        }
-        .role-badge {
-          font-size: 12px;
-          font-weight: 700;
-          letter-spacing: 0.05em;
-          background: #eff6ff;
-          color: var(--primary);
-          padding: 4px 10px;
-          border-radius: 12px;
-        }
-        .navbar-actions {
-          display: flex;
-          align-items: center;
-          gap: 16px;
-        }
-        .icon-btn {
-          background: none;
-          border: none;
-          cursor: pointer;
-          color: var(--text-muted);
-          padding: 8px;
-          border-radius: 50%;
-        }
-        .icon-btn:hover {
-          background: #f1f5f9;
-        }
-        .user-profile {
-          display: flex;
-          align-items: center;
-          gap: 8px;
-          font-weight: 500;
-          color: var(--text-main);
-          padding: 6px 12px;
-          border-radius: 20px;
-          background: #f1f5f9;
-        }
-      `}</style>
     </header>
-  )
+  );
 }

@@ -1,0 +1,1 @@
+export default function Leave() { return <div><h1>My Leaves</h1></div> }
