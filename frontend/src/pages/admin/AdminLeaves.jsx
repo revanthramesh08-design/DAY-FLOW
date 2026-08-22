@@ -1,0 +1,1 @@
+export default function AdminLeaves() { return <div><h1>Leave Approvals</h1></div> }

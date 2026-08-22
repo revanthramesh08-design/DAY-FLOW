@@ -1,0 +1,1 @@
+export default function AdminPayroll() { return <div><h1>Payroll Management</h1></div> }

@@ -1,0 +1,1 @@
+export default function EmployeePayroll() { return <div><h1>My Payroll</h1></div> }

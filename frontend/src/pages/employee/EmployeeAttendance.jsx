@@ -1,0 +1,1 @@
+export default function EmployeeAttendance() { return <div><h1>My Attendance</h1></div> }
