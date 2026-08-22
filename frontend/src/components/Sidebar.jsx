@@ -6,11 +6,10 @@ import {
   Clock, 
   Calendar, 
   DollarSign, 
-  Users, 
   LogOut 
 } from 'lucide-react';
 
-export default function Sidebar({ role, isOpen }) {
+export default function Sidebar({ isOpen }) {
   const employeeLinks = [
     { name: 'Dashboard', path: '/employee/dashboard', icon: LayoutDashboard },
     { name: 'Profile', path: '/employee/profile', icon: User },
@@ -18,16 +17,6 @@ export default function Sidebar({ role, isOpen }) {
     { name: 'Leave', path: '/employee/leave', icon: Calendar },
     { name: 'Payroll', path: '/employee/payroll', icon: DollarSign },
   ];
-
-  const adminLinks = [
-    { name: 'Dashboard', path: '/admin/dashboard', icon: LayoutDashboard },
-    { name: 'Employees', path: '/admin/employees', icon: Users },
-    { name: 'Attendance', path: '/admin/attendance', icon: Clock },
-    { name: 'Leaves', path: '/admin/leaves', icon: Calendar },
-    { name: 'Payroll', path: '/admin/payroll', icon: DollarSign },
-  ];
-
-  const links = role === 'admin' ? adminLinks : employeeLinks;
 
   return (
     <aside className={`${isOpen ? 'w-64' : 'w-20'} bg-slate-900 text-white transition-all duration-300 flex flex-col justify-between shrink-0 h-full`}>
@@ -46,7 +35,7 @@ export default function Sidebar({ role, isOpen }) {
 
         {/* Navigation Links */}
         <nav className="p-3 space-y-1">
-          {links.map((link) => {
+          {employeeLinks.map((link) => {
             const Icon = link.icon;
             return (
               <NavLink

@@ -1,19 +1,22 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Navigate, Outlet } from 'react-router-dom';
-import { useAuth } from '../hooks/useAuth';
+import AuthContext from '../context/AuthContext';
 
 export default function ProtectedRoute({ allowedRole }) {
-  const { user } = useAuth();
+  const auth = useContext(AuthContext);
+  const user = auth?.user;
 
-  // Redirect to login if user is not logged in
+  // 1. If not logged in -> send to login
   if (!user) {
     return <Navigate to="/login" replace />;
   }
 
-  // Redirect to their default dashboard if trying to access unauthorized role routes
+  // 2. If logged in but trying to access a role they don't have -> send to THEIR correct dashboard
   if (allowedRole && user.role !== allowedRole) {
-    return <Navigate to={user.role === 'admin' ? '/admin/dashboard' : '/employee/dashboard'} replace />;
+    const targetDashboard = user.role === 'admin' ? '/admin/dashboard' : '/employee/dashboard';
+    return <Navigate to={targetDashboard} replace />;
   }
 
+  // 3. Allowed -> render page
   return <Outlet />;
 }
