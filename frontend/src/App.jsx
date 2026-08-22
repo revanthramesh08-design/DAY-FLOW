@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import AdminManagement from './components/AdminManagement';
+import Attendance from './components/Attendance';
 import './App.css';
 
 export default function App() {
@@ -72,6 +73,8 @@ export default function App() {
         <main className="view-content">
           {activeView === 'admin' ? (
             <AdminManagement />
+          ) : activeView === 'attendance' ? (
+            <Attendance />
           ) : (
             <div className="placeholder-view">
               <h2>{activeView.toUpperCase()} Section</h2>
