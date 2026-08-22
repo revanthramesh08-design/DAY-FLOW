@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import AdminManagement from './components/AdminManagement';
 import Attendance from './components/Attendance';
+import Reports from './components/Reports';
 import './App.css';
 
 export default function App() {
@@ -31,6 +32,12 @@ export default function App() {
             onClick={() => setActiveView('attendance')}
           >
             📅 Attendance
+          </button>
+          <button
+            className={`nav-item ${activeView === 'reports' ? 'active' : ''}`}
+            onClick={() => setActiveView('reports')}
+          >
+            📊 Reports
           </button>
           <button
             className={`nav-item ${activeView === 'leave' ? 'active' : ''}`}
@@ -75,6 +82,8 @@ export default function App() {
             <AdminManagement />
           ) : activeView === 'attendance' ? (
             <Attendance />
+          ) : activeView === 'reports' ? (
+            <Reports />
           ) : (
             <div className="placeholder-view">
               <h2>{activeView.toUpperCase()} Section</h2>
