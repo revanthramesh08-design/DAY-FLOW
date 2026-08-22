@@ -1,100 +1,207 @@
-#root {
-  width: 100%;
-  margin: 0;
-  padding: 0;
+* {
+  box-sizing: border-box;
 }
 
-.app-container {
-  display: flex;
-  min-height: 100vh;
-  background-color: #f8fafc;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f4f7fb;
+  color: #102a43;
 }
+
+/* =========================
+   LOGIN PAGE
+========================= */
+
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f4f7fb;
+  padding: 20px;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 380px;
+  background: white;
+  padding: 42px 40px;
+  border-radius: 16px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+}
+
+.login-card h1 {
+  margin: 0;
+  text-align: center;
+  color: #1683c8;
+  font-size: 32px;
+  letter-spacing: 1px;
+}
+
+.login-subtitle {
+  text-align: center;
+  color: #6b7280;
+  margin: 10px 0 30px;
+}
+
+.login-form-group {
+  margin-bottom: 18px;
+}
+
+.login-form-group label {
+  display: block;
+  margin-bottom: 7px;
+  font-weight: 600;
+  color: #172b4d;
+}
+
+.login-form-group input {
+  width: 100%;
+  height: 45px;
+  padding: 0 13px;
+  border: 1px solid #d3dce6;
+  border-radius: 8px;
+  font-size: 15px;
+  outline: none;
+}
+
+.login-form-group input:focus {
+  border-color: #2864df;
+}
+
+.login-button {
+  width: 100%;
+  height: 46px;
+  border: none;
+  border-radius: 8px;
+  background: #2864df;
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 5px;
+}
+
+.login-button:hover {
+  background: #1f55c7;
+}
+
+.login-error {
+  color: #dc2626;
+  font-size: 14px;
+  margin: -5px 0 15px;
+}
+
+.demo-login {
+  text-align: center;
+  color: #718096;
+  font-size: 14px;
+  margin-top: 22px;
+}
+
+/* =========================
+   APP LAYOUT
+========================= */
+
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  background: #f5f7fb;
+}
+
+/* SIDEBAR */
 
 .sidebar {
   width: 240px;
-  background-color: #0f172a;
-  color: #ffffff;
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
+  min-height: 100vh;
+  background: #0d172b;
+  color: white;
   flex-shrink: 0;
+}
+
+.logo-container {
+  padding: 28px 24px;
 }
 
 .logo-container h2 {
   margin: 0;
-  color: #38bdf8;
-  letter-spacing: 1px;
+  color: #1683c8;
+  font-size: 25px;
 }
 
 .nav-menu {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  padding: 10px 14px;
+  gap: 5px;
 }
 
 .nav-item {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  background: transparent;
-  color: #94a3b8;
+  width: 100%;
   border: none;
-  padding: 0.75rem 1rem;
+  background: transparent;
+  color: #91a4c0;
+  text-align: left;
+  padding: 14px 12px;
   border-radius: 8px;
   cursor: pointer;
-  text-align: left;
-  font-size: 0.95rem;
-  transition: all 0.2s ease;
+  font-size: 15px;
 }
 
-.nav-item:hover,
-.nav-item.active {
-  background-color: #1e293b;
-  color: #ffffff;
+.nav-item:hover {
+  background: #17243b;
+  color: white;
 }
+
+.nav-item.active {
+  background: #1c2a42;
+  color: white;
+}
+
+/* MAIN CONTENT */
 
 .main-content {
   flex: 1;
-  display: flex;
-  flex-direction: column;
-  overflow-x: hidden;
+  min-width: 0;
 }
 
 .top-header {
-  background-color: #ffffff;
-  padding: 1rem 2rem;
+  height: 88px;
+  background: white;
+  border-bottom: 1px solid #e3e8ef;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #e2e8f0;
+  justify-content: space-between;
+  padding: 0 30px;
 }
 
 .search-bar input {
-  padding: 0.5rem 1rem;
-  border: 1px solid #cbd5e1;
-  border-radius: 20px;
   width: 260px;
+  height: 42px;
+  border: 1px solid #d7dee8;
+  border-radius: 22px;
+  padding: 0 16px;
+  outline: none;
+  font-size: 14px;
 }
 
 .user-profile {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 10px;
 }
 
 .user-avatar {
-  width: 36px;
-  height: 36px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
-  background-color: #2563eb;
-  color: #ffffff;
+  background: #285cc7;
+  color: white;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: bold;
-  font-size: 0.85rem;
+  font-weight: 700;
 }
 
 .user-info {
@@ -103,120 +210,26 @@
 }
 
 .user-name {
-  font-weight: 600;
-  font-size: 0.9rem;
+  font-weight: 700;
+  font-size: 14px;
 }
 
 .user-role {
-  font-size: 0.75rem;
-  color: #64748b;
+  color: #718096;
+  font-size: 12px;
+  margin-top: 3px;
 }
 
 .view-content {
-  padding: 2rem;
+  padding: 30px;
 }
 
 .placeholder-view {
-  background: #ffffff;
-  padding: 3rem;
-  border-radius: 10px;
-  border: 1px solid #e2e8f0;
-  text-align: center;
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .sidebar {
-    width: 100%;
-    flex-direction: row;
-    gap: 1rem;
-    padding: 1rem;
-    align-items: center;
-    flex-shrink: 1;
-    overflow-x: auto;
-  }
-
-  .logo-container {
-    white-space: nowrap;
-  }
-
-  .logo-container h2 {
-    font-size: 1.25rem;
-  }
-
-  .nav-menu {
-    flex-direction: row;
-    gap: 0.25rem;
-    flex-wrap: wrap;
-  }
-
-  .nav-item {
-    padding: 0.5rem 0.75rem;
-    font-size: 0.8rem;
-    white-space: nowrap;
-  }
-
-  .app-container {
-    flex-direction: column;
-  }
-
-  .main-content {
-    width: 100%;
-  }
-
-  .view-content {
-    padding: 1rem;
-  }
-
-  .top-header {
-    flex-direction: column;
-    gap: 1rem;
-    padding: 1rem;
-  }
-
-  .search-bar {
-    width: 100%;
-  }
-
-  .search-bar input {
-    width: 100%;
-  }
-
-  .user-profile {
-    align-self: flex-start;
-  }
-}
-
-@media (max-width: 480px) {
-  .sidebar {
-    gap: 0.5rem;
-    padding: 0.75rem;
-  }
-
-  .nav-item {
-    padding: 0.4rem 0.5rem;
-    font-size: 0.75rem;
-    gap: 0.25rem;
-  }
-
-  .logo-container h2 {
-    font-size: 1rem;
-  }
-
-  .view-content {
-    padding: 0.75rem;
-  }
-
-  .top-header {
-    gap: 0.75rem;
-    padding: 0.75rem;
-  }
-
-  .placeholder-view {
-    padding: 1.5rem;
-  }
-
-  .user-info {
-    display: none;
-  }
+.placeholder-view h2 {
+  margin-top: 0;
 }
